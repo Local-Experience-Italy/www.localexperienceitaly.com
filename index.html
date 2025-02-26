@@ -52,39 +52,61 @@
         .pulse-size {
             animation: pulse-size 3s infinite ease-in-out;
         }
+
+        @keyframes fly-in {
+            from {
+                transform: translateY(-10vh);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .fly-in {
+            animation: fly-in 1s ease-out forwards;
+        }
     </style>
 </head>
 
 <body>
     <div id="pictureFrame"
         class="min-h-screen w-screen flex flex-col items-center justify-start transition-background-image duration-1000 bg-cover bg-center bg-no-repeat">
-    <header class="w-full p-4 bg-amber-100/50 backdrop-blur-sm flex justify-between items-center">
-        <img src="LEI-logo_V2-22.png" alt="Luxury Experiences Italy Logo" class="h-16">
-        <nav>
-            <a href="/about" class="text-[#063f44] hover:text-amber-800 mx-4">about</a>
-            <a href="/contact" class="text-[#063f44] hover:text-amber-800 mx-4">contact</a>
-        </nav>
-    </header>
+        <header class="w-full p-4 bg-amber-100/50 backdrop-blur-sm flex justify-between items-center">
+            <img src="LEI-logo_V2-22.png" alt="Luxury Experiences Italy Logo" class="h-16">
+            <nav>
+                <a href="/about" class="text-[#063f44] hover:text-amber-800 mx-4">about</a>
+                <a href="/contact" class="text-[#063f44] hover:text-amber-800 mx-4">contact</a>
+            </nav>
+        </header>
         <div class="flex-grow flex items-center justify-center relative">
             <div class="mt-[66vh]">
-                <button onclick="this.style.display='none';"
+                <button
+                    onclick="this.style.display='none'; document.getElementById('hiddenContent').classList.remove('hidden'); document.getElementById('hiddenContent').classList.add('fly-in');"
                     class="pulse-size btn btn-lg btn-neutral border-2 border-amber-200 w-96 text-4xl text-amber-200 px-8 py-4 backdrop-blur-sm bg-[#063f44]/50 hover:bg-amber-200 hover:text-[#063f44]">
                     EXPLORE
                 </button>
             </div>
-            <div id="hiddenContent" style="display: none;" class="fixed inset-0 flex items-center justify-center">
-                <div class="grid grid-cols-1 gap-4 p-4">
+            <div id="hiddenContent" class="hidden fixed inset-0 flex items-center justify-center">
+                <div class="grid grid-cols-1 gap-8 p-8">
                     <div
-                        class="card w-96 bg-base-100 shadow-xl transition-all duration-5000 transform hover:scale-105 backdrop-blur-sm bg-black/30">
-                        <div class="card-body text-amber-200">
-                            <h2 class="card-title">Content Panel 1</h2>
-                            <p>Content goes here</p>
+                        class="card w-96 backdrop-blur-sm bg-[#063f44]/50 hover:scale-105 transition-transform duration-300">
+                        <div class="card-body p-8 text-amber-200">
+                            <h2 class="card-title text-3xl font-serif text-center w-full font-bold mb-6">Bespoke
+                                Weddings</h2>
+                            <p class="text-lg text-justify mt-4">Craft your perfect Italian wedding day, from intimate
+                                ceremonies in Tuscan villas to grand celebrations in Venetian palazzos.</p>
                         </div>
                     </div>
-                    <div class="">
-                        <div class="card-body text-amber-200">
-                            <h2 class="card-title">Content Panel 2</h2>
-                            <p>Content goes here</p>
+                    <div
+                        class="card w-96 backdrop-blur-sm bg-[#063f44]/50 hover:scale-105 transition-transform duration-300">
+                        <div class="card-body p-8 text-amber-200">
+                            <h2 class="card-title text-3xl font-serif text-center w-full font-bold mb-6">Luxury
+                                Vacations</h2>
+                            <p class="text-lg text-justify mt-4">Experience Italy's finest with private tours, exclusive
+                                accommodations, and curated gastronomic adventures.</p>
                         </div>
                     </div>
                 </div>
